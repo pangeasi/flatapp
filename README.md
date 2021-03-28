@@ -13,7 +13,7 @@ yarn dev:api
 and run the development server front:
 
 ```bash
-npm run dev:front:
+npm run dev:front
 # or
 yarn dev:front
 ```
