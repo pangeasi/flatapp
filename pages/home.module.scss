@@ -1,0 +1,38 @@
+.results {
+  text-align: center;
+  p {
+    font-size: 1.4em;
+    font-family: serif;
+    margin-bottom: 2px;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+}
+
+.selects {
+  display: flex;
+}
+
+.cards {
+  display: grid;
+  grid-gap: 0 20px;
+}
+
+@media (min-width: 300px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

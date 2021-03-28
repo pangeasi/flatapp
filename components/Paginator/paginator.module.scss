@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #beb9b967;
+  border-bottom: 1px solid #beb9b967;
+  margin-block: 20px;
+  padding-block: 28px;
+}
+.page {
+  cursor: pointer;
+  background-color: transparent;
+  padding-inline: 0.5em;
+  font-size: 1.3em;
+  border: 0;
+  color: #969595;
+}
+.active {
+  color: inherit;
+}

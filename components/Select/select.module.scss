@@ -1,0 +1,40 @@
+.select {
+  flex: 1;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  line-height: 3;
+  max-width: 400px;
+  height: 60px;
+  border-radius: 0.25em;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: 1px 1px 1px #00000015;
+    border: 0 !important;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5em;
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+}
+.select::after {
+  content: '\f078';
+  font: normal normal normal 17px/1 FontAwesome;
+  color: #848688;
+  right: 11px;
+  top: 10px;
+  height: 20px;
+  padding: 10px 0px 0px 8px;
+  position: absolute;
+  pointer-events: none;
+}

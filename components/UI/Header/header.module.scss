@@ -1,0 +1,21 @@
+.nav {
+  display: grid;
+  grid-template-columns: 3fr repeat(2, 1fr);
+  div {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    box-shadow: 1px 1px 1px #00000015;
+  }
+}
+.navLink {
+  a {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+}
+.add {
+  padding: 2px;
+  margin-left: 10px;
+}

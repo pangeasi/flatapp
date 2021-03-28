@@ -1,0 +1,52 @@
+version: "2.1"
+networks:
+  app:
+    driver: bridge
+services:
+  mariadb:
+    image: "docker.io/bitnami/mariadb:10.5-debian-10"
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mariadb_data:/bitnami/mariadb"
+    networks:
+      - app
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_DATABASE=flatapp
+    container_name: mariadb
+    healthcheck:
+      test: ["CMD", "/opt/bitnami/scripts/mariadb/healthcheck.sh"]
+      interval: 15s
+      timeout: 5s
+      retries: 6
+  backend:
+    build: .
+    networks:
+      - app
+    environment:
+      - DATABASE_HOST=mariadb
+    command:
+      ["./wait-for-it.sh", "mariadb:3306", "--", "npm", "run", "start:api"]
+    ports:
+      - "3333:3333"
+    links:
+      - "mariadb:db"
+    depends_on:
+      - mariadb
+  frontend:
+    build: .
+    networks:
+      - app
+    command: ["npm", "run", "start:front"]
+    ports:
+      - "3000:3000"
+    links:
+      - "backend:be"
+
+volumes:
+  mariadb_data:
+    driver: local
