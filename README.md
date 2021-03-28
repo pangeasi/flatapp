@@ -1,6 +1,8 @@
 ## Getting Started
 
-First, run the development server api:
+First, rename `config.example.ts` to `config.ts` in `./api` folder
+
+run the development server api:
 
 ```bash
 npm run dev:api
@@ -16,7 +18,7 @@ npm run dev:front:
 yarn dev:front
 ```
 
-## Run with dockers compose
+## Run with docker-compose
 
 If is the first time, build whit flag `--build` :
 
