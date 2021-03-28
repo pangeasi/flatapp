@@ -1,21 +1,10 @@
-import { useProductsDispatch, useProductsState } from "../store/products";
+import { useProductsState } from "../store/products";
 import { Paginator } from "../components/Paginator/Paginator";
 import { ProductCard } from "../components/ProductCard/ProductCard";
 import { Select } from "../components/Select/Select";
 import styles from "./home.module.scss";
 import { Layout } from "../components/UI/Layout/Layout";
 import Link from "next/link";
-type Product = {
-  id: string;
-  title: string;
-  pic: string;
-  price: number;
-};
-
-type Products = {
-  results: Product[];
-  count: number;
-};
 
 const Home = () => {
   const products = useProductsState();
@@ -36,6 +25,7 @@ const Home = () => {
             options={["Precio ascendente", "Precio descendente"]}
           />
         </div>
+
         {products?.total > 0 ? (
           <div className={styles.cards}>
             {products?.paginated &&

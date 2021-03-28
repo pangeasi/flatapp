@@ -1,7 +1,12 @@
 import styles from "./productCard.module.scss";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BASE_ENDPOINT_API } from "../../constants";
-export const ProductCard = ({ product }) => {
+import { Product } from "../../types";
+
+type PropTypes = {
+  product: Product;
+};
+export const ProductCard = ({ product }: PropTypes) => {
   return (
     <div>
       <div className={styles.fav}>

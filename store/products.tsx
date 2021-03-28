@@ -1,10 +1,11 @@
 import React from "react";
 import { createContext, useReducer, useContext } from "react";
 import { ITEMS_PER_PAGE } from "../constants";
+import { Action, ProductState } from "../types";
 const ProductsStateContext = createContext(undefined);
 const ProductsDispatchContext = createContext(undefined);
 
-const productReducer = (state, action) => {
+const productReducer = (state: ProductState, action: Action) => {
   switch (action.type) {
     case "FETCHED": {
       const paginated = {};
@@ -53,7 +54,7 @@ const ProductsProvider = ({ children }) => {
   );
 };
 
-const useProductsState = () => {
+const useProductsState = (): ProductState => {
   const context = useContext(ProductsStateContext);
   if (context === undefined) {
     throw new Error("useProductsState must be used within a ProductsProvider");
